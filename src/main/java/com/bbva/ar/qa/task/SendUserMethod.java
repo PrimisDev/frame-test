@@ -7,7 +7,7 @@ public class SendUserMethod {
         scenario.http().post(apiName)
                 .body().json()
                 .content(data).send();
-        scenario.var("is", "$response.user.is");
+        scenario.var("id", "$response.user.id");
         scenario.var("username", "$response.user.username");
         scenario.var("firstName", "$response.user.firstName");
         scenario.var("lastName", "$response.user.lastName");
