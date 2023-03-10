@@ -1,21 +1,17 @@
 package com.bbva.ar.qa.steps;
 
 import com.bbva.ar.qa.task.GetProfile;
-import com.bbva.ar.qa.task.SendDeleteProfile;
-import com.bbva.ar.qa.task.SendUpdateProfile;
 import com.bbva.ar.qa.task.SendUserMethod;
 import com.bbva.ar.qa.utils.LoadData;
 import com.bbva.arch.qe.backend.client.TestingScenario;
-import com.google.gson.JsonObject;
 import com.google.inject.Inject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.h2.engine.User;
-
-
 import static com.bbva.ar.qa.services.UserRouts.*;
 import static com.bbva.ar.qa.utils.constants.ResponseFields.BODY;
+
+
 
 public class Steps {
     @Inject
@@ -34,10 +30,10 @@ public class Steps {
     public void theClientUser() {
         data = LoadData.forSignUpSuccess(id, username, firstName, lastName, email, password, phone, userStatus);
     }
-    @When("the client complete {int}, {String}, {String}, {String}, {String}, {String}, {String} and {int} field")
+    @When("the client complete (.*), (.*), (.*), (.*), (.*), (.*), (.*) and (.*) field")
     public void theClientCompleteField(int id, String username, String firstName,
-                                                               String lastName, String email, String password,
-                                                               String phone, int userStatus) {
+                                       String lastName, String email, String password,
+                                       String phone, int userStatus) {
         data = LoadData.forSignUpSuccess(id, username, firstName, lastName, email, password, phone, userStatus);
         SendUserMethod.with(SIGN_UP, scenario);
         //Crear usuario < este es el metodo que estaba usando antes
@@ -53,3 +49,7 @@ public class Steps {
 
 
 }
+
+
+
+

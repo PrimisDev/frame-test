@@ -1,7 +1,7 @@
 @singUp
 Feature: Create a new user
   As an new user
-  I wants to create account with my username, email and password
+  I wants to create account with my id, username, firstName, lastName, email, password, phone and userStatus
   To sign up successfully
 
   @happyPath
